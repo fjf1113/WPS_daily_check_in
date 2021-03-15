@@ -25,7 +25,7 @@ def request_re(sid, invite_userid, rep = 40):
     r = requests.post(invite_url, headers={'sid': sid}, data={'invite_userid': invite_userid})
     js = json.loads(r.content)
     if js['msg'] == 'tryLater' and rep > 0:
-        rep -= 1
+        rep -= 2
         time.sleep(3)
         r = request_re(sid, invite_userid, rep)
     return r
